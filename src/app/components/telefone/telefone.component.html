@@ -1,0 +1,21 @@
+<app-menu-navegacao></app-menu-navegacao>
+<div class="container">
+  <div class="form-container">
+    <h2 class="form-title">Cadastrar Telefone</h2>
+    <form [formGroup]="telefoneForm" (ngSubmit)="submitForm()">
+      <div class="form-group">
+        <label for="idUsuario">ID USUARIO</label>
+        <input type="text" pInputText formControlName="idUsuario" [(ngModel)]="telefoneForm.value.idUsuario"/>
+      </div>
+      <div class="form-group">
+        <label for="ddd">DDD:</label>
+        <input type="text" pInputText formControlName="ddd"/>
+      </div>
+      <div class="form-group">
+        <label for="telefone">Telefone:</label>
+        <input type="text" pInputText formControlName="telefone"/>
+      </div>
+      <button pButton pRipple label="Submit" class="p-button-success"></button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<app-menu-navegacao></app-menu-navegacao>
+<br><br>
+<div class="transferencia-table-container">
+  <div class="transferencia-table-wrapper">
+    <table class="transferencia-table">
+      <thead>
+      <tr>
+        <th>ID TRANSFERENCIA</th>
+        <th>DATA TRANSFERENCIA</th>
+        <th>VALOR</th>
+        <th>CONTA ORIGEM</th>
+        <th>CONTA DESTINO</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let transferencia of transferencias">
+        <td>{{ transferencia.idTransferencia }}</td>
+        <td>{{ transferencia.dataTransferencia }}</td>
+        <td>{{ transferencia.valor }}</td>
+        <td>{{ transferencia.contaOrigem }}</td>
+        <td>{{ transferencia.contaDestino }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

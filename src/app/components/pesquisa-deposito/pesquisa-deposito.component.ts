@@ -1,0 +1,33 @@
+import {Component} from '@angular/core';
+import {FormBuilder, FormGroup} from "@angular/forms";
+import {DepositoService} from "../../services/deposito/deposito.service";
+import {DatePipe} from "@angular/common";
+
+@Component({
+  selector: 'app-pesquisa-deposito',
+  templateUrl: './pesquisa-deposito.component.html',
+  styleUrls: ['./pesquisa-deposito.component.css']
+})
+export class PesquisaDepositoComponent {
+  depositoForm: FormGroup;
+  deposito: any;
+
+  constructor(private formBuilder: FormBuilder, private depositoService: DepositoService, private datePipe: DatePipe) {
+
+    this.depositoForm = this.formBuilder.group({
+      idDepositoField: ['']
+    });
+  }
+
+
+  async search() {
+    const idDeposito = this.depositoForm.value.idDepositoField;
+    try {
+      this.deposito = await this.depositoService.pesquisarDeposito(idDeposito);
+      this.deposito.dataDeposito = this.datePipe.transform(this.deposito.dataDeposito, 'dd/MM/yyyy HH:mm:ss');
+    } catch (error) {
+
+      console.error('Erro ao pesquisar saque:', error);
+    }
+  }
+}

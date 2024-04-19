@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.form-container {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 800px;
+  max-width: 90%;
+  text-align: center;
+  margin-bottom: 10px; /* Espaçamento entre o formulário e o título da pesquisa */
+}
+
+.form-title {
+  font-size: 24px;
+  margin-bottom: 10px; /* Espaçamento entre o título e o formulário */
+}
+
+.result-container {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+}
+
+.result-title {
+  font-size: 24px;
+  margin-bottom: 10px; /* Espaçamento entre o título e a tabela */
+}
+
+.result-table {
+  width: 100%;
+  margin-top: 10px; /* Espaçamento entre a tabela e o título */
+}
+
+.result-table th,
+.result-table td {
+  padding: 5px; /* Reduz ainda mais o espaçamento interno das células */
+  border: 1px solid #ddd;
+}
+
+.result-table thead th {
+  background-color: #ccc;
+}

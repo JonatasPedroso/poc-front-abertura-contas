@@ -1,0 +1,92 @@
+.menu-container {
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px 30px;
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: space-between; /* Distribui o espaço entre os elementos */
+}
+
+.logo-container {
+  width: 100px;
+  background-color: #f2f2f2; /* Cor de fundo igual à cor do .menu-container */
+}
+
+.logo-container img {
+  width: 50px; /* Largura da imagem da logo */
+  object-fit: cover; /* Garante que a imagem cubra as dimensões sem distorcer */
+  height: 50px;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropbtn {
+  background-color: #f2f2f2; /* Cor de fundo igual à cor do .menu-container */
+  color: #333;
+  padding: 1px 15px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f2f2f2; /* Cor de fundo igual à cor do .menu-container */
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #ddd;
+}
+
+.menu-list {
+  list-style-type: none;
+  display: flex; /* Alinha os itens do menu em linha */
+  padding: 0;
+  margin: 0; /* Remove margens padrão */
+  align-items: center;
+}
+
+.menu-list li {
+  margin-right: 20px; /* Espaçamento entre os itens */
+}
+
+.menu-list li:last-child {
+  margin-right: 0; /* Remove margem direita do último item */
+}
+
+.menu-list li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  transition: color 0.3s; /* Suaviza a transição de cores */
+}
+
+.menu-list li a:hover {
+  color: #007bff;
+}

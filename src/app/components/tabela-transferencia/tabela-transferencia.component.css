@@ -1,0 +1,33 @@
+.transferencia-table-container {
+  display: flex;
+  justify-content: center;
+  height: auto;
+}
+
+.transferencia-table-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.transferencia-table {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: auto;
+  max-width: 90%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.transferencia-table th,
+.transferencia-table td {
+  padding: 5px; /* Reduz ainda mais o espaçamento interno das células */
+  border: 1px solid #ddd;
+}
+
+.transferencia-table thead th {
+  background-color: #ccc;
+}
+

@@ -1,0 +1,32 @@
+.deposit-table-container {
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  height: auto;
+}
+
+.deposit-table-wrapper {
+  width: 100%; /* Garante que a tabela ocupe toda a largura do container */
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+}
+
+.deposit-table {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: auto; /* Define a largura da tabela para 800px */
+  max-width: 90%; /* Garante que a tabela não exceda 90% da largura da tela */
+  text-align: center; /* Centraliza o conteúdo da tabela */
+  margin-bottom: 20px; /* Adiciona margem inferior para separar de outros elementos */
+}
+
+.deposit-table th,
+.deposit-table td {
+  padding: 5px; /* Reduz ainda mais o espaçamento interno das células */
+  border: 1px solid #ddd;
+}
+
+.deposit-table thead th {
+  background-color: #ccc;
+}

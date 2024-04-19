@@ -1,0 +1,22 @@
+<app-menu-navegacao></app-menu-navegacao>
+<br><br>
+<div class="saque-table-container">
+  <div class="saque-table-wrapper">
+    <table class="saque-table">
+      <thead>
+      <tr>
+        <th>ID SAQUE</th>
+        <th>DATA SAQUE</th>
+        <th>VALOR</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let saque of saques">
+        <td>{{ saque.idSaque }}</td>
+        <td>{{ saque.dataSaque }}</td>
+        <td>{{ saque.valor }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

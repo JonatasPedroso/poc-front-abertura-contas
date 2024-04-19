@@ -1,0 +1,25 @@
+<app-menu-navegacao></app-menu-navegacao>
+<div class="container">
+  <div class="form-container">
+    <h2 class="form-title">Fazer Transferência</h2>
+    <form [formGroup]="transferenciaForm" (ngSubmit)="submitForm()">
+      <div class="form-group">
+        <label for="contaOrigem">Conta Origem:</label>
+        <input type="text" pInputText formControlName="contaOrigem"/>
+      </div>
+      <div class="form-group">
+        <label for="contaDestino">Conta Destino:</label>
+        <input type="text" pInputText formControlName="contaDestino"/>
+      </div>
+      <div class="form-group">
+        <label for="valor">Valor:</label>
+        <input type="text" pInputText formControlName="valor"/>
+      </div>
+      <div class="form-group">
+        <label for="dataTransferencia">Data:</label>
+        <input type="date" id="dataTransferencia" formControlName="dataTransferencia" />
+      </div>
+      <button pButton pRipple label="Submit" class="p-button-success"></button>
+    </form>
+  </div>
+</div>

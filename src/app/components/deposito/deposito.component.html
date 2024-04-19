@@ -1,0 +1,25 @@
+<app-menu-navegacao></app-menu-navegacao>
+<div class="container">
+  <div class="form-container">
+    <h2 class="form-title">Fazer Depósito</h2>
+    <form [formGroup]="depositoForm" (ngSubmit)="submitForm()">
+      <div class="form-group">
+        <label for="contaOrigem">ContaOrigem:</label>
+        <input type="text" pInputText formControlName="contaOrigem"/>
+      </div>
+      <div class="form-group">
+        <label for="contaDestino">ContaDestino:</label>
+        <input type="text" pInputText formControlName="contaDestino"/>
+      </div>
+      <div class="form-group">
+        <label for="dataDeposito">Data:</label>
+        <input type="date" id="dataDeposito" formControlName="dataDeposito" />
+      </div>
+      <div class="form-group">
+        <label for="valor">Valor:</label>
+        <input type="text" pInputText formControlName="valor"/>
+      </div>
+      <button pButton pRipple label="Submit" class="p-button-success"></button>
+    </form>
+  </div>
+</div>

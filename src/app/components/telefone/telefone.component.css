@@ -1,0 +1,56 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form-container {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 800px; /* Define a largura do formulário para 800px */
+  max-width: 90%; /* Garante que o formulário não exceda 90% da largura da tela */
+  text-align: center; /* Centraliza o conteúdo do formulário */
+}
+
+.form-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 50%; /* Reduz a largura dos inputs para cerca de metade */
+  max-width: 300px; /* Define um tamanho máximo para os inputs */
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box; /* Garante que o padding não aumente a largura total */
+}
+
+.form-group button {
+  width: 50%; /* Reduz a largura do botão para cerca de metade */
+  max-width: 300px; /* Define um tamanho máximo para o botão */
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: inline-block; /* Permite que o botão seja centralizado */
+}
+
+.form-group button:hover {
+  background-color: #0056b3;
+}

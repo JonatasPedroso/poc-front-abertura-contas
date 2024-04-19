@@ -1,0 +1,33 @@
+<app-menu-navegacao></app-menu-navegacao><br>
+<div class="container">
+  <div class="form-container">
+    <h2 class="form-title">Pesquisar Transferência</h2>
+    <form [formGroup]="transferenciaForm" (ngSubmit)="search()">
+      <div class="form-group">
+        <label for="idTransferenciaField">ID Transferência:</label><br>
+        <input type="text" pInputText formControlName="idTransferenciaField" id="idTransferenciaField" class="form-control" />
+      </div><br>
+      <button pButton pRipple label="Pesquisar" class="p-button-primary"></button>
+    </form>
+  </div>
+
+  <div class="result-container" *ngIf="transferencia">
+    <h2 class="result-title">Resultado da Pesquisa</h2>
+    <table class="result-table">
+      <thead>
+      <tr>
+        <th>ID transferencia</th>
+        <th>Data transferencia</th>
+        <th>Valor</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>{{ transferencia.idTransferencia }}</td>
+        <td>{{ transferencia.dataTransferencia }}</td>
+        <td>{{ transferencia.valor }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
