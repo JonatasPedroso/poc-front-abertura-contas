@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {UsuarioServiceService} from "../../services/usuario/usuario-service.service";
-import {DatePipe} from "@angular/common";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UsuarioServiceService } from "../../services/usuario/usuario-service.service";
+import { DatePipe } from "@angular/common";
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-usuario',
@@ -12,7 +13,12 @@ import Swal from 'sweetalert2';
 export class UsuarioComponent implements OnInit {
   usuarioForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private usuarioService: UsuarioServiceService, private datePipe: DatePipe) {
+  constructor(
+    private fb: FormBuilder,
+    private usuarioService: UsuarioServiceService,
+    private datePipe: DatePipe,
+    private router: Router
+  ) {
   }
 
   ngOnInit(): void {
@@ -36,6 +42,7 @@ export class UsuarioComponent implements OnInit {
           text: "Cadastro realizado com sucesso!",
           icon: "success"
         });
+        await this.router.navigate(['/cadastrarendereco']);
       } catch (error) {
         await Swal.fire({
           title: "Erro!",

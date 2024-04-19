@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {EnderecoService} from "../../services/endereco/endereco.service";
 import {UsuarioIdServiceService} from "../../services/UsuarioIDServer/UsuarioIdService.service";
 import Swal from "sweetalert2";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-endereco',
@@ -12,7 +13,11 @@ import Swal from "sweetalert2";
 export class EnderecoComponent implements OnInit {
   enderecoForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private enderecoService: EnderecoService, private usuarioIdService: UsuarioIdServiceService) { }
+  constructor(private fb: FormBuilder,
+              private enderecoService: EnderecoService,
+              private usuarioIdService: UsuarioIdServiceService,
+              private router: Router) {
+  }
 
   ngOnInit(): void {
     this.enderecoForm = this.fb.group({
@@ -43,6 +48,7 @@ export class EnderecoComponent implements OnInit {
           text: "Cadastro de endereço realizado com sucesso!",
           icon: "success"
         });
+        await this.router.navigate(['/cadastrartelefone']);
       } catch (error) {
         await Swal.fire({
           title: "Erro!",
