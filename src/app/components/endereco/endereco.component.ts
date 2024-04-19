@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {EnderecoService} from "../../services/endereco/endereco.service";
 import {UsuarioIdServiceService} from "../../services/UsuarioIDServer/UsuarioIdService.service";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-endereco',
@@ -37,12 +38,24 @@ export class EnderecoComponent implements OnInit {
     if (this.enderecoForm.valid) {
       try {
         await this.enderecoService.cadastrarEndereco(this.enderecoForm.value);
-        console.log('Cadastro de telefone realizado com sucesso!');
+        await Swal.fire({
+          title: "Sucesso!",
+          text: "Cadastro de endereço realizado com sucesso!",
+          icon: "success"
+        });
       } catch (error) {
-        console.error('Erro ao cadastrar telefone:', error);
+        await Swal.fire({
+          title: "Erro!",
+          text: "Erro ao cadastrar endereco!",
+          icon: "error"
+        });
       }
     } else {
-      alert('Por favor, preencha o formulário corretamente.');
+      await Swal.fire({
+        title: "Erro!",
+        text: "Por favor, preencha o formulário corretamente.",
+        icon: "warning"
+      });
     }
   }
 }

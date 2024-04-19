@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {DepositoService} from "../../services/deposito/deposito.service";
 import {DatePipe} from "@angular/common";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-pesquisa-deposito',
@@ -26,8 +27,11 @@ export class PesquisaDepositoComponent {
       this.deposito = await this.depositoService.pesquisarDeposito(idDeposito);
       this.deposito.dataDeposito = this.datePipe.transform(this.deposito.dataDeposito, 'dd/MM/yyyy HH:mm:ss');
     } catch (error) {
-
-      console.error('Erro ao pesquisar saque:', error);
+      await Swal.fire({
+        title: "Erro!",
+        text: `Erro ao pesquisar deposito: ${error}`,
+        icon: "error"
+      });
     }
   }
 }

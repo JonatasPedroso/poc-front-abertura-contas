@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {SaqueService} from "../../services/saque/saque.service";
 import {DatePipe} from "@angular/common";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-saque',
@@ -27,14 +28,24 @@ export class SaqueComponent implements OnInit {
         const dataSaque = this.datePipe.transform(this.saqueForm.value.dataSaque, 'yyyy-MM-ddTHH:mm:ss');
         const dadosSaque = {...this.saqueForm.value, dataSaque};
         await this.saqueService.fazerSaque(dadosSaque);
-        console.log('Saque realizado com sucesso!');
-
+        await Swal.fire({
+          title: "Sucesso!",
+          text: "Saque realizado com sucesso!",
+          icon: "success"
+        });
       } catch (error) {
-        console.error('Erro ao fazer Saque:', error);
-
+        await Swal.fire({
+          title: "Erro!",
+          text: `Erro ao fazer Saque: ${error}`,
+          icon: "error"
+        });
       }
     } else {
-      alert('Por favor, preencha o formulário corretamente.');
+      await Swal.fire({
+        title: "Erro!",
+        text: "Por favor, preencha o formulário corretamente.",
+        icon: "warning"
+      });
     }
   }
 }

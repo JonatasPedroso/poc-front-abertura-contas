@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DepositoService} from "../../services/deposito/deposito.service";
 import {DatePipe} from "@angular/common";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-tabela-deposito',
@@ -20,7 +21,11 @@ export class TabelaDepositoComponent implements OnInit {
         return deposito;
       });
     }).catch(error => {
-      console.error('Erro ao carregar os saques:', error);
+      Swal.fire({
+        title: "Erro!",
+        text: `Erro ao carregar os depositos: ${error}`,
+        icon: "error"
+      });
     });
   }
 }

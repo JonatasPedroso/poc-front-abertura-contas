@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {DepositoService} from "../../services/deposito/deposito.service";
 import {DatePipe} from "@angular/common";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-deposito',
@@ -29,12 +30,24 @@ export class DepositoComponent implements OnInit {
         const dataDeposito = this.datePipe.transform(this.depositoForm.value.dataDeposito, 'yyyy-MM-ddTHH:mm:ss');
         const dadosDeposito = {...this.depositoForm.value, dataDeposito};
         await this.depositoService.fazerDeposito(dadosDeposito);
-        console.log('Depósito realizado com sucesso!');
+        await Swal.fire({
+          title: "Sucesso!",
+          text: "Depósito realizado com sucesso!",
+          icon: "success"
+        });
       } catch (error) {
-        console.error('Erro ao fazer depósito:', error);
+        await Swal.fire({
+          title: "Erro!",
+          text: `Erro ao realizar depósito: ${error}`,
+          icon: "error"
+        });
       }
     } else {
-      alert('Por favor, preencha o formulário corretamente.');
+      await Swal.fire({
+        title: "Erro!",
+        text: "Por favor, preencha o formulário corretamente.",
+        icon: "warning"
+      });
     }
   }
 }

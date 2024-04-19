@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {TransferenciaService} from "../../services/transferencia/transferenciaservice.service";
 import {DatePipe} from "@angular/common";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-transferencia',
@@ -29,14 +30,24 @@ export class TransferenciaComponent implements OnInit {
         const dataTransferencia = this.datePipe.transform(this.transferenciaForm.value.dataTransferencia, 'yyyy-MM-ddTHH:mm:ss');
         const dadosTransferencia = {...this.transferenciaForm.value, dataTransferencia};
         await this.transferenciaService.fazerTransferencia(dadosTransferencia);
-        console.log('Transferencia realizado com sucesso!');
-
+        await Swal.fire({
+          title: "Sucesso!",
+          text: "Transferencia realizado com sucesso!",
+          icon: "success"
+        });
       } catch (error) {
-        console.error('Erro ao fazer transferencia:', error);
-
+        await Swal.fire({
+          title: "Erro!",
+          text: `Erro ao fazer transferencia: ${error}`,
+          icon: "error"
+        });
       }
     } else {
-      alert('Por favor, preencha o formulário corretamente.');
+      await Swal.fire({
+        title: "Erro!",
+        text: "Por favor, preencha o formulário corretamente.",
+        icon: "warning"
+      });
     }
   }
 }

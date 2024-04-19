@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {SaqueService} from "../../services/saque/saque.service";
 import {DatePipe} from "@angular/common";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-tabela-saque',
@@ -22,6 +23,11 @@ export class TabelaSaqueComponent implements OnInit {
       });
     }).catch(error => {
       console.error('Erro ao carregar os saques:', error);
+      Swal.fire({
+        title: "Erro!",
+        text: `Erro ao carregar os saques: ${error}`,
+        icon: "error"
+      });
     });
   }
 }

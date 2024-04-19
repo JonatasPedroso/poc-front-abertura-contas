@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {SaqueService} from "../../services/saque/saque.service";
 import {DatePipe} from "@angular/common";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-pesquisa-saque',
@@ -26,7 +27,11 @@ export class PesquisaSaqueComponent {
       this.saque = await this.saqueService.pesquisarSaque(idSaque);
       this.saque.dataSaque = this.datePipe.transform(this.saque.dataSaque, 'dd/MM/yyyy HH:mm:ss');
     } catch (error) {
-      console.error('Erro ao pesquisar saque:', error);
+      await Swal.fire({
+        title: "Erro!",
+        text: `Erro ao pesquisar saque: ${error}`,
+        icon: "error"
+      });
     }
   }
 }

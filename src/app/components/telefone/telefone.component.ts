@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {UsuarioIdServiceService} from "../../services/UsuarioIDServer/UsuarioIdService.service";
 import {TelefoneService} from "../../services/telefone/telefone.service";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-telefone',
@@ -34,12 +35,24 @@ export class TelefoneComponent implements OnInit {
     if (this.telefoneForm.valid) {
       try {
         await this.telefoneService.cadastrarTelefone(this.telefoneForm.value);
-        console.log('Cadastro de telefone realizado com sucesso!');
+        await Swal.fire({
+          title: "Sucesso!",
+          text: "Cadastro de telefone realizado com sucesso!",
+          icon: "success"
+        });
       } catch (error) {
-        console.error('Erro ao cadastrar telefone:', error);
+        await Swal.fire({
+          title: "Erro!",
+          text: `Erro ao cadastrar telefone: ${error}`,
+          icon: "error"
+        });
       }
     } else {
-      alert('Por favor, preencha o formulário corretamente.');
+      await Swal.fire({
+        title: "Erro!",
+        text: "Por favor, preencha o formulário corretamente.",
+        icon: "warning"
+      });
     }
   }
 }

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UsuarioServiceService} from "../../services/usuario/usuario-service.service";
 import {DatePipe} from "@angular/common";
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-usuario',
@@ -30,14 +31,24 @@ export class UsuarioComponent implements OnInit {
         const dataNascimento = this.datePipe.transform(this.usuarioForm.value.dataNascimento, 'yyyy-MM-ddTHH:mm:ss');
         const dadosUsuario = {...this.usuarioForm.value, dataNascimento};
         await this.usuarioService.cadastrarUsuario(dadosUsuario);
-        console.log('Cadastro realizado com sucesso!');
-
+        await Swal.fire({
+          title: "Sucesso!",
+          text: "Cadastro realizado com sucesso!",
+          icon: "success"
+        });
       } catch (error) {
-        console.error('Erro ao fazer Cadastro:', error);
-
+        await Swal.fire({
+          title: "Erro!",
+          text: `Erro ao realizar cadastro: ${error}`,
+          icon: "error"
+        });
       }
     } else {
-      alert('Por favor, preencha o formulário corretamente.');
+      await Swal.fire({
+        title: "Atenção!",
+        text: "Por favor, preencha o formulário corretamente.",
+        icon: "warning"
+      });
     }
   }
 }

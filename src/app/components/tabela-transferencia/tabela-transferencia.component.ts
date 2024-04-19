@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {TransferenciaService} from "../../services/transferencia/transferenciaservice.service";
 import {DatePipe} from "@angular/common";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-tabela-transferencia',
@@ -20,7 +21,11 @@ export class TabelaTransferenciaComponent implements OnInit {
         return transferencia;
       });
     }).catch(error => {
-      console.error('Erro ao carregar as transferencias:', error);
+      Swal.fire({
+        title: "Erro!",
+        text: `Erro ao carregar as transferencias: ${error}`,
+        icon: "error"
+      });
     });
   }
 }

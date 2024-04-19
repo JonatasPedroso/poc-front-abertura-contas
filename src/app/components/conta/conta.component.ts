@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-conta',
@@ -19,11 +20,15 @@ export class ContaComponent implements OnInit {
     });
   }
 
-  submitForm() {
+  async submitForm() {
     if (this.contaForm.valid) {
       console.log(this.contaForm.value);
     } else {
-      alert('Por favor, preencha o formulário corretamente.');
+      await Swal.fire({
+        title: "Erro!",
+        text: "Por favor, preencha o formulário corretamente.",
+        icon: "warning"
+      });
     }
   }
 }
